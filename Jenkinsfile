@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("getintodevops/hellonode")
+        app = docker.build("getintodevops/hellonode", "--build-arg HTTP_PROXY=http://172.17.0.2:3128 --build-arg HTTPS_PROXY=http://172.17.0.2:3128 .")
     }
 
     stage('Test image') {
